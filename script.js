@@ -5,6 +5,7 @@ const MIN_LIFECOUNT = 0;
 const numerito_input = document.getElementById('numero');
 const vidas_div = document.getElementById('vidas');
 const alert_div = document.getElementById('alerts');
+const restart_btn = document.getElementById('restart-game-btn');
 
 let numerito_value = "";
 let secret_number;
@@ -47,6 +48,11 @@ window.onload = () => {
         // Ponemos las vidas
         vidas_div.setAttribute('lifecount', current_lifecount);
     });
+
+    // Botón de reiniciar
+    restart_btn.addEventListener('click', function (e) {
+        restartGame();
+    })
 }
 
 function checkResult(value) {
@@ -57,7 +63,7 @@ function checkResult(value) {
     // Actualizar valor del "lifecount" y el mensaje
     if (value == secret_number || --current_lifecount == 0) {
         game_done = true;
-        alert_div.querySelector(current_lifecount > 0 ? '.congrats' : '.lost').style.display = "block";
+        alert_div.querySelectorAll(current_lifecount > 0 ? '.congrats' : '.lost').forEach((elem) => elem.style.display = "block");
     }
     else alert_div.querySelector(value > secret_number ? '.smaller' : '.bigger').style.display = "block";
 
@@ -66,13 +72,22 @@ function checkResult(value) {
 }
 
 function restartGame() {
+    // Recalculamos el número secreto
     secret_number = Math.floor((Math.random() * 10) + 1);
+
+    // Reinicamos los valores
     numerito_input.value = "";
     game_done = false;
     current_lifecount = 3;
     vidas_div.setAttribute('lifecount', current_lifecount);
 
+    // Ocultamos todos los mensajes de "alerta"
     alert_div.querySelectorAll(':scope > div').forEach((child) => child.style.display = "none");
     alert_div.querySelectorAll(':scope > div > span.s_number').forEach((span) => span.innerHTML = secret_number);
+
+    // Rehabilitamos el input
+    numerito_input.disabled = false;
+    numerito_input.value = numerito_value = "";
+    numerito_input.focus();
 }
 

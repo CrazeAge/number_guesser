@@ -38,11 +38,15 @@
             <input type="text" name="numero" id="numero" min="1" max="10" placeholder="Indica un número de 1 a 10">
         </div>
 
-        <div class="alerts" id="alerts">
-            <div class="bigger">¡Es mayor que <span class="curr_number"></span>!</div>
-            <div class="smaller">¡Es menor <span class="curr_number"></span>!</div>
-            <div class="lost">¡Has perdido! El número era <span class="s_number"></span></div>
-            <div class="congrats">¡Has ganado! El número era <span class="s_number"></span></div>
+        <div id="alerts">
+            <div class="alert bigger">¡Es mayor que <span class="curr_number"></span>!</div>
+            <div class="alert smaller">¡Es menor <span class="curr_number"></span>!</div>
+            <div class="alert lost">¡Has perdido! El número era <span class="s_number"></span></div>
+            <div class="alert congrats">¡Has ganado! El número era <span class="s_number"></span></div>
+            <div class="congrats lost">
+                <!-- <button type="button">Reiniciar el juego</button> -->
+                <div class="fake-button" id="restart-game-btn">Reiniciar el juego</div>
+            </div>
         </div>
     </div>
 

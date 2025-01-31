@@ -145,11 +145,35 @@ div.control input#numero:disabled::placeholder {
 
 
 div#alerts {
-    height: 20px;
     display: flex;
+    flex-direction: column;
+    gap: 3px;
+    height: 25px;
+    padding: 5px 5px;
     justify-content: center;
     align-items: center;
 }
 div#alerts > div {
     display: none;
+}
+div#alerts > div.alert {
+    color: #444;
+    font-size: 10px;
+}
+
+div#alerts .fake-button {
+    border: 1px solid;
+    font-size: 9px;
+
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: #dfb240;
+    color: #ffffff;
+    border-color: #8181813a;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+div#alerts .fake-button:hover {
+    background: rgb(201, 154, 35);
 }

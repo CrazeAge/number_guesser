@@ -1,0 +1,155 @@
+/* General */
+:root {
+    --text-border-color: black;
+    --text-border: 1px 1px 0 var(--text-border-color),
+    -1px 1px 0 var(--text-border-color),
+    1px -1px 0 var(--text-border-color),
+    -1px -1px 0 var(--text-border-color),
+    0px 1px 0 var(--text-border-color),
+    0px -1px 0 var(--text-border-color),
+    -1px 0px 0 var(--text-border-color),
+    1px 0px 0 var(--text-border-color),
+    2px 2px 0 var(--text-border-color),
+    -2px 2px 0 var(--text-border-color),
+    2px -2px 0 var(--text-border-color),
+    -2px -2px 0 var(--text-border-color),
+    0px 2px 0 var(--text-border-color),
+    0px -2px 0 var(--text-border-color),
+    -2px 0px 0 var(--text-border-color),
+    2px 0px 0 var(--text-border-color),
+    1px 2px 0 var(--text-border-color),
+    -1px 2px 0 var(--text-border-color),
+    1px -2px 0 var(--text-border-color),
+    -1px -2px 0 var(--text-border-color),
+    2px 1px 0 var(--text-border-color),
+    -2px 1px 0 var(--text-border-color),
+    2px -1px 0 var(--text-border-color),
+    -2px -1px 0 var(--text-border-color);
+}
+
+/* Page content */
+body {
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(131, 179, 218);
+}
+
+div.hr {
+    border: 0px;
+    border-top-width: 1px;
+    border-color: #e5e5e561;
+    border-style: solid;
+    margin: 10px 0px;
+}
+
+/* Game */
+div#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 20px;
+
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #e5e5e53d;
+    background: #ffffff29;
+}
+
+div#game-container > .title {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: var(--text-border);
+}
+
+div#game-container > div#vidas {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+
+    --heart-display: initial; /* Representación del conteo de vidas */
+}
+
+/* Contador de vidas */
+div#game-container > div#vidas img {
+    image-rendering: pixelated;
+    height: 22px;
+}
+div#game-container > div#vidas[lifecount="3"] img:not(.c-3),
+div#game-container > div#vidas[lifecount="2"] img:not(.c-2),
+div#game-container > div#vidas[lifecount="1"] img:not(.c-1),
+div#game-container > div#vidas[lifecount="0"] img:not(.c-0) {
+    --heart-display: none;
+}
+div#game-container > div#vidas[lifecount="3"] img.c-3,
+div#game-container > div#vidas[lifecount="2"] img.c-2,
+div#game-container > div#vidas[lifecount="1"] img.c-1,
+div#game-container > div#vidas[lifecount="0"] img.c-0 {
+    --heart-display: initial;
+}
+div#game-container > div#vidas img.c-3,
+div#game-container > div#vidas img.c-2,
+div#game-container > div#vidas img.c-1,
+div#game-container > div#vidas img.c-0 {
+    display: var(--heart-display);
+}
+
+
+div.instrucciones {
+    padding: 0px 40px;
+    color: gray;
+    text-align: justify;
+    font-size: 10px;
+}
+
+div.control {
+    padding: 10px 40px;
+}
+div.control label {
+    display: none;
+}
+
+
+div.control input#numero {
+    padding: 6px 12px;
+    border: 1px solid;
+    border-color: #e5e5e53d;
+    background: #ffffff2e;
+    border-radius: 3px;
+    font-size: 10px;
+    text-align: center;
+}
+div.control input#numero:focus-visible {
+    outline: 0px;
+}
+div.control input#numero:focus-visible {
+    border-color: #58a7c182;
+}
+div.control input#numero::placeholder {
+    color: rgba(135, 155, 179, 0.555);
+}
+div.control input#numero:disabled {
+    background-color: #cfcfcf57;
+    border-color: #d7d7d757;
+}
+div.control input#numero:disabled::placeholder {
+    opacity: 0;
+}
+
+
+div#alerts {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div#alerts > div {
+    display: none;
+}

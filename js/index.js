@@ -7,6 +7,9 @@ const vidas_div = document.getElementById('vidas');
 const alert_div = document.getElementById('alerts');
 const restart_btn = document.getElementById('restart-game-btn');
 
+const lang_elements = document.querySelectorAll('[data-lang-key]');
+const lang_buttons = document.querySelectorAll('button[data-lang]');
+
 let numerito_value = "";
 let secret_number;
 let current_lifecount = 0;
@@ -14,12 +17,24 @@ let game_done = false;
 
 
 window.onload = () => {
-    // numerito_input = document.getElementById('numero');
-    // vidas_div = document.getElementById('vidas');
-    // alert_div = document.getElementById('alerts');
 
+    // Inicializamos el juego
     restartGame();
 
+    // Botones de idioma
+    lang_buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const lang = button.dataset.lang; // Idioma
+
+            // Recogemos el diccionario correspondiente al idioma seleccionado
+            fetch('./lang/' + lang + '.json').then((response) => response.json()).then((lang_data) => {
+                applyLanguage(lang_data);
+            });
+
+        });
+    })
+
+    // Input del juego
     numerito_input.addEventListener('keyup', function (e) {
         this.value = this.value.trim();
         let val = this.value;
@@ -91,3 +106,27 @@ function restartGame() {
     numerito_input.focus();
 }
 
+function applyLanguage(lang_data) {
+    // Comprobamos que el diccionario sea válido
+    if (typeof lang_data !== 'object' || lang_data === null) {
+        console.error('Invalid language data');
+        return;
+    }
+
+    // Recorremos todos los elementos con "data-lang-key"
+    lang_elements.forEach((elem) => {
+        const key = elem.dataset.langKey;
+        const keys = key.split('.');
+        let value = lang_data;
+
+        // Accedemos a los valores anidados
+        keys.forEach((k) => {
+            value = value[k];
+        });
+
+        if (elem.tagName == "INPUT") elem.placeholder = value;
+        else elem.innerHTML = value;
+    });
+
+    restartGame();
+}

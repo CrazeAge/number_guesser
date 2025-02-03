@@ -32,12 +32,23 @@
 }
 
 /* Page content */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+html, body {
+    height: 100%;
+}
 body {
-    text-align: center;
-    margin-top: 50px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(131, 179, 218);
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    /* text-align: center; */
+    background-color: #83b3da;
+    background: linear-gradient(130deg, rgba(131,179,218,1) 60%, rgba(114,168,212,1) 60%);
 }
 
 div.hr {
@@ -48,15 +59,48 @@ div.hr {
     margin: 10px 0px;
 }
 
+/* Header */
+header.header {
+    display: flex;
+    background-color: rgb(37, 37, 37);
+    color: whitesmoke;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Idioma */
+div.lang  {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+div.lang > button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+}
+div.lang > button img {
+    height: 16px;
+    cursor: pointer;
+}
+
 /* Game */
 div#game-container {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    padding: 20px;
+    /* width: 400px; */
+    width: 80%;
+    /* padding: 20px; */
+    padding: 40px;
+    margin-top: 50px;
 
-    border: 1px solid;
-    border-radius: 3px;
+
+    /* border: 1px solid; */
+    border: 2px solid;
+    /* border-radius: 3px; */
+    border-radius: 7px;
     border-color: #e5e5e53d;
     background: #ffffff29;
 }
@@ -64,7 +108,8 @@ div#game-container {
 div#game-container > .title {
     width: 100%;
     text-align: center;
-    font-size: 30px;
+    /* font-size: 30px; */
+    font-size: 75px;
     font-weight: 600;
     letter-spacing: 3px;
 
@@ -76,7 +121,8 @@ div#game-container > .title {
 div#game-container > div#vidas {
     display: flex;
     justify-content: center;
-    gap: 3px;
+    /* gap: 3px; */
+    gap: 8px;
 
     --heart-display: initial; /* Representación del conteo de vidas */
 }
@@ -84,7 +130,8 @@ div#game-container > div#vidas {
 /* Contador de vidas */
 div#game-container > div#vidas img {
     image-rendering: pixelated;
-    height: 22px;
+    /* height: 22px; */
+    height: 55px;
 }
 div#game-container > div#vidas[lifecount="3"] img:not(.c-3),
 div#game-container > div#vidas[lifecount="2"] img:not(.c-2),
@@ -107,30 +154,26 @@ div#game-container > div#vidas img.c-0 {
 
 
 div.instrucciones {
-    padding: 0px 40px;
+    /* padding: 0px 40px; */
+    padding: 0px 80px;
     color: gray;
     text-align: justify;
-    font-size: 10px;
+    /* font-size: 10px; */
+    font-size: 30px;
 }
 
 div.control {
-    /* padding: 10px 40px; */
+    padding: 10px 40px;
     position: relative;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    width: fit-content;
-    margin: auto;
-
+    width: 100%;
+    /* margin: auto; */
+    margin-top: 20px;
 }
 div.control label {
     display: none;
-}
-div.control img#validate {
-    position: absolute;
-    height: 12px;
-    left: calc(100% - 15px);
-    color: blue;
 }
 
 div.control input#numero {
@@ -139,8 +182,10 @@ div.control input#numero {
     border-color: #e5e5e53d;
     background: #ffffff2e;
     border-radius: 3px;
-    font-size: 10px;
+    /* font-size: 10px; */
+    font-size: 30px;
     text-align: center;
+    min-width: 500px;
 }
 div.control input#numero:focus-visible {
     outline: 0px;
@@ -163,8 +208,10 @@ div.control input#numero:disabled::placeholder {
 div#alerts {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
     gap: 3px;
-    height: 25px;
+    /* height: 25px; */
+    height: 60px;
     padding: 5px 5px;
     justify-content: center;
     align-items: center;
@@ -174,15 +221,17 @@ div#alerts > div {
 }
 div#alerts > div.alert {
     color: #444;
-    font-size: 10px;
+    /* font-size: 10px; */
+    font-size: 30px;
 }
 
 div#alerts .fake-button {
     border: 1px solid;
     font-size: 9px;
+    font-size: 25px;
 
-    padding: 3px 8px;
-    border-radius: 3px;
+    padding: 6px 12px;
+    border-radius: 6px;
     background: #dfb240;
     color: #ffffff;
     border-color: #8181813a;

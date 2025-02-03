@@ -4,52 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+    <header class="header">
+        <h4 data-lang-key="header.title">"Adivina el n&uacute;mero", un proyecto para experimentar con HTML, CSS y JS.</h4>
+        <div class="lang">
+            <button type="button" class="lang-btn" data-lang="es" title="Español">
+                <img src="./img/es.svg" alt="">
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" title="English">
+                <img src="./img/gb.svg" alt="">
+            </button>
+        </div>
+    </header>
     <div id="game-container">
-        <div class="title">
+        <div class="title" data-lang-key="game.title">
             ADIVINA EL N&Uacute;MERO
         </div>
         <div id="vidas" lifecount="3">
             <div>
-                <img src="img/corazon-pixel-full.png" class="c-1 c-2 c-3" alt="">
-                <img src="img/corazon-pixel-empty.png" class="c-0" alt="">
+                <img src="./img/corazon-pixel-full.png" class="c-1 c-2 c-3" alt="">
+                <img src="./img/corazon-pixel-empty.png" class="c-0" alt="">
             </div>
             <div>
-                <img src="img/corazon-pixel-full.png" class="c-2 c-3" alt="">
-                <img src="img/corazon-pixel-empty.png" class="c-0 c-1" alt="">
+                <img src="./img/corazon-pixel-full.png" class="c-2 c-3" alt="">
+                <img src="./img/corazon-pixel-empty.png" class="c-0 c-1" alt="">
             </div>
             <div>
-                <img src="img/corazon-pixel-full.png" class="c-3" alt="">
-                <img src="img/corazon-pixel-empty.png" class="c-0 c-1 c-2" alt="">
+                <img src="./img/corazon-pixel-full.png" class="c-3" alt="">
+                <img src="./img/corazon-pixel-empty.png" class="c-0 c-1 c-2" alt="">
             </div>
         </div>
 
         <div class="hr"></div>
 
-        <div class="instrucciones">
-            El n&uacute;mero a adivinar está comprendido entre 1 y 10. Deberás escribir el número en la
+        <div class="instrucciones" data-lang-key="game.instructions">
+            El n&uacute;mero a adivinar est&aacute; comprendido entre 1 y 10. Deber&aacute;s escribir el n&uacute;mero en la
             caja de texto y pulsar enter. Tienes tres oportunidades. ¡Buena suerte!
         </div>
 
         <div class="control">
             <label for="numero">N&uacute;mero</label>
-            <input type="text" name="numero" id="numero" min="1" max="10" placeholder="Indica un número de 1 a 10">
+            <input type="text" name="numero" id="numero" data-lang-key="game.number_input" placeholder="Indica un n&uacute;mero de 1 a 10" autocomplete="off">
         </div>
 
         <div id="alerts">
-            <div class="alert bigger">¡Es mayor que <span class="curr_number"></span>!</div>
-            <div class="alert smaller">¡Es menor que <span class="curr_number"></span>!</div>
-            <div class="alert lost">¡Has perdido! El número era <span class="s_number"></span></div>
-            <div class="alert congrats">¡Has ganado! El número era <span class="s_number"></span></div>
+            <div class="alert bigger" data-lang-key="game.alerts.bigger">¡El n&uacute;mero es mayor que <span class="curr_number"></span>!</div>
+            <div class="alert smaller" data-lang-key="game.alerts.smaller">¡El n&uacute;mero es menor que <span class="curr_number"></span>!</div>
+            <div class="alert lost" data-lang-key="game.alerts.lost">¡Has perdido! El número era <span class="s_number"></span></div>
+            <div class="alert congrats" data-lang-key="game.alerts.congrats">¡Has ganado! El número era <span class="s_number"></span></div>
             <div class="congrats lost">
                 <!-- <button type="button">Reiniciar el juego</button> -->
-                <div class="fake-button" id="restart-game-btn">Reiniciar el juego</div>
+                <div class="fake-button" id="restart-game-btn" data-lang-key="game.reset">Reiniciar el juego</div>
             </div>
         </div>
     </div>
 
-    <script src="script/script.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

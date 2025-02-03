@@ -1,0 +1,17 @@
+{
+    "header": {
+        "title": "\"Adivina el n&uacute;mero\", un proyecto para experimentar con HTML, CSS y JS."
+    },
+    "game": {
+        "title": "ADIVINA EL N&Uacute;MERO",
+        "instructions": "El n&uacute;mero a adivinar est&aacute; comprendido entre 1 y 10. Deber&aacute;s escribir el n&uacute;mero en la caja de texto y pulsar enter. Tienes tres oportunidades. ¡Buena suerte!",
+        "number_input": "Indica un número de 1 a 10",
+        "alerts": {
+            "bigger": "¡El n&uacute;mero es mayor que <span class=\"curr_number\"></span>!",
+            "smaller": "¡El n&uacute;mero es menor que <span class=\"curr_number\"></span>!",
+            "lost": "¡Has perdido! El n&uacute;mero era <span class=\"s_number\"></span>",
+            "congrats": "¡Has ganado! El n&uacute;mero era <span class=\"s_number\"></span>"
+        },
+        "reset": "Reiniciar el juego"
+    }
+}

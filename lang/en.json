@@ -1,0 +1,17 @@
+{
+    "header": {
+        "title": "\"Guess the number\", a project to experiment with HTML, CSS, and JS."
+    },
+    "game": {
+        "title": "GUESS THE NUMBER",
+        "instructions": "The number to guess is between 1 and 10. You must enter the number in the text box and press enter. You have three chances. Good luck!",
+        "number_input": "Enter a number from 1 to 10",
+        "alerts": {
+            "bigger": "The number is bigger than <span class=\"curr_number\"></span>!",
+            "smaller": "The number is smaller than <span class=\"curr_number\"></span>!",
+            "lost": "You lost! The number was <span class=\"s_number\"></span>",
+            "congrats": "You won! The number was <span class=\"s_number\"></span>"
+        },
+        "reset": "Restart the game"
+    }
+}

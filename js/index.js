@@ -3,7 +3,7 @@ const MAX_LIFECOUNT = 3;
 const MIN_LIFECOUNT = 0;
 
 const numerito_input = document.getElementById('numero');
-const vidas_div = document.getElementById('vidas');
+const vidas_div = document.getElementById('life-counter');
 const alert_div = document.getElementById('alerts');
 const restart_btn = document.getElementById('restart-game-btn');
 

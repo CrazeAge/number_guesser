@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+
     <header class="header">
         <h4 data-lang-key="header.title">"Adivina el n&uacute;mero", un proyecto para experimentar con HTML, CSS y JS.</h4>
         <div class="lang">
@@ -18,48 +19,58 @@
             </button>
         </div>
     </header>
-    <div id="game-container">
-        <div class="title" data-lang-key="game.title">
-            ADIVINA EL N&Uacute;MERO
-        </div>
-        <div id="vidas" lifecount="3">
-            <div>
-                <img src="./img/corazon-pixel-full.png" class="c-1 c-2 c-3" alt="">
-                <img src="./img/corazon-pixel-empty.png" class="c-0" alt="">
-            </div>
-            <div>
-                <img src="./img/corazon-pixel-full.png" class="c-2 c-3" alt="">
-                <img src="./img/corazon-pixel-empty.png" class="c-0 c-1" alt="">
-            </div>
-            <div>
-                <img src="./img/corazon-pixel-full.png" class="c-3" alt="">
-                <img src="./img/corazon-pixel-empty.png" class="c-0 c-1 c-2" alt="">
-            </div>
-        </div>
 
-        <div class="hr"></div>
+    <main class="main">
 
-        <div class="instrucciones" data-lang-key="game.instructions">
-            El n&uacute;mero a adivinar est&aacute; comprendido entre 1 y 10. Deber&aacute;s escribir el n&uacute;mero en la
-            caja de texto y pulsar enter. Tienes tres oportunidades. ¡Buena suerte!
-        </div>
-
-        <div class="control">
-            <label for="numero">N&uacute;mero</label>
-            <input type="text" name="numero" id="numero" data-lang-key="game.number_input" placeholder="Indica un n&uacute;mero de 1 a 10" autocomplete="off">
-        </div>
-
-        <div id="alerts">
-            <div class="alert bigger" data-lang-key="game.alerts.bigger">¡El n&uacute;mero es mayor que <span class="curr_number"></span>!</div>
-            <div class="alert smaller" data-lang-key="game.alerts.smaller">¡El n&uacute;mero es menor que <span class="curr_number"></span>!</div>
-            <div class="alert lost" data-lang-key="game.alerts.lost">¡Has perdido! El número era <span class="s_number"></span></div>
-            <div class="alert congrats" data-lang-key="game.alerts.congrats">¡Has ganado! El número era <span class="s_number"></span></div>
-            <div class="congrats lost">
-                <!-- <button type="button">Reiniciar el juego</button> -->
-                <div class="fake-button" id="restart-game-btn" data-lang-key="game.reset">Reiniciar el juego</div>
+        <div id="game-container">
+            <div class="title" data-lang-key="game.title">
+                ADIVINA EL N&Uacute;MERO
             </div>
-        </div>
-    </div>
+
+            <div id="life-counter" lifecount="3">
+                <div>
+                    <img src="./img/corazon-pixel-full.png" class="c-1 c-2 c-3" alt="">
+                    <img src="./img/corazon-pixel-empty.png" class="c-0" alt="">
+                </div>
+                <div>
+                    <img src="./img/corazon-pixel-full.png" class="c-2 c-3" alt="">
+                    <img src="./img/corazon-pixel-empty.png" class="c-0 c-1" alt="">
+                </div>
+                <div>
+                    <img src="./img/corazon-pixel-full.png" class="c-3" alt="">
+                    <img src="./img/corazon-pixel-empty.png" class="c-0 c-1 c-2" alt="">
+                </div>
+            </div>
+
+            <hr class="game-hr">
+
+            <div class="instructions" data-lang-key="game.instructions">
+                El n&uacute;mero a adivinar est&aacute; comprendido entre 1 y 10. Deber&aacute;s escribir el n&uacute;mero en la
+                caja de texto y pulsar enter. Tienes tres oportunidades. ¡Buena suerte!
+            </div>
+
+            <div class="control">
+                <label for="numero">N&uacute;mero</label>
+                <input type="text" name="numero" id="numero" data-lang-key="game.number_input" placeholder="Indica un n&uacute;mero de 1 a 10" autocomplete="off">
+            </div>
+
+            <div id="alerts">
+                <div class="alert bigger" data-lang-key="game.alerts.bigger">¡El n&uacute;mero es mayor que <span class="curr_number"></span>!</div>
+                <div class="alert smaller" data-lang-key="game.alerts.smaller">¡El n&uacute;mero es menor que <span class="curr_number"></span>!</div>
+                <div class="alert lost" data-lang-key="game.alerts.lost">¡Has perdido! El número era <span class="s_number"></span></div>
+                <div class="alert congrats" data-lang-key="game.alerts.congrats">¡Has ganado! El número era <span class="s_number"></span></div>
+                <div class="congrats lost">
+                    <!-- <button type="button">Reiniciar el juego</button> -->
+                    <div class="fake-button" id="restart-game-btn" data-lang-key="game.reset">Reiniciar el juego</div>
+                </div>
+            </div>
+        </div><!-- /div.game-container -->
+    </main>
+
+    <footer class="footer">
+        Footer
+    </footer>
+
 
     <script src="./js/index.js"></script>
 </body>

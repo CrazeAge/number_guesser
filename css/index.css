@@ -1,244 +1,240 @@
 /* General */
 :root {
     --text-border-color: black;
-    --text-border: 1px 1px 0 var(--text-border-color),
-    -1px 1px 0 var(--text-border-color),
-    1px -1px 0 var(--text-border-color),
-    -1px -1px 0 var(--text-border-color),
-    0px 1px 0 var(--text-border-color),
-    0px -1px 0 var(--text-border-color),
-    -1px 0px 0 var(--text-border-color),
-    1px 0px 0 var(--text-border-color),
-    2px 2px 0 var(--text-border-color),
-    -2px 2px 0 var(--text-border-color),
-    2px -2px 0 var(--text-border-color),
-    -2px -2px 0 var(--text-border-color),
-    0px 2px 0 var(--text-border-color),
-    0px -2px 0 var(--text-border-color),
-    -2px 0px 0 var(--text-border-color),
-    2px 0px 0 var(--text-border-color),
-    1px 2px 0 var(--text-border-color),
-    -1px 2px 0 var(--text-border-color),
-    1px -2px 0 var(--text-border-color),
-    -1px -2px 0 var(--text-border-color),
-    2px 1px 0 var(--text-border-color),
-    -2px 1px 0 var(--text-border-color),
-    2px -1px 0 var(--text-border-color),
-    -2px -1px 0 var(--text-border-color);
-}
-@font-face {
-    font-family: "Impact";
-    src: url("/font/impact.ttf") format("truetype"), url("/font/impact.woff") format("woff");
+    --text-border:
+        /* 1px & 2px uniform width */
+        -1px -1px 0 var(--text-border-color), -2px -2px 0 var(--text-border-color), /* top left */
+        1px -1px 0 var(--text-border-color), 2px -2px 0 var(--text-border-color), /* top right */
+        -1px 1px 0 var(--text-border-color), -2px 2px 0 var(--text-border-color), /* bottom left */
+        1px 1px 0 var(--text-border-color), 2px 2px 0 var(--text-border-color), /* bottom right */
+
+        0px -1px 0 var(--text-border-color), 0px -2px 0 var(--text-border-color), /* top */
+        0px 1px 0 var(--text-border-color), 0px 2px 0 var(--text-border-color), /* bottom */
+        -1px 0px 0 var(--text-border-color), -2px 0px 0 var(--text-border-color), /* left */
+        1px 0px 0 var(--text-border-color), 2px 0px 0 var(--text-border-color), /* right */
+
+        /* 1px & 2px non-uniform width */
+        -1px -2px 0 var(--text-border-color), -2px -1px 0 var(--text-border-color), /* top left */
+        1px -2px 0 var(--text-border-color), 2px -1px 0 var(--text-border-color), /* top right */
+        -1px 2px 0 var(--text-border-color), -2px 1px 0 var(--text-border-color), /* bottom left */
+        1px 2px 0 var(--text-border-color), 2px 1px 0 var(--text-border-color) /* bottom right */
+    ;
 }
 
-/* Page content */
-* {
+
+/******************/
+/* PAGE STRUCTURE */
+/******************/
+
+* { /* Reiniciamos los valores */
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     font-family: system-ui, sans-serif;
 }
-html, body {
-    height: 100%;
-}
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    /* text-align: center; */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
     background-color: #83b3da;
     background: linear-gradient(130deg, rgba(131,179,218,1) 60%, rgba(114,168,212,1) 60%);
 }
-
-div.hr {
-    border: 0px;
-    border-top-width: 1px;
-    border-color: #e5e5e561;
-    border-style: solid;
-    margin: 10px 0px;
-}
-
-/* Header */
-header.header {
+body > header, body > main, body > footer {
     display: flex;
+}
+body > header, body > footer {
+    padding: 10px 20px;
     background-color: rgb(37, 37, 37);
     color: whitesmoke;
-    width: 100%;
+}
+body > header {
     justify-content: space-between;
-    padding: 10px 20px;
+}
+body > main {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+body > footer {
+    justify-content: center;
 }
 
-/* Idioma */
-div.lang  {
+/* HEADER CONTENT */
+header > div.lang, header > div.lang > button { /* Lang. picker */
     display: flex;
+    align-items: center;
     gap: 10px;
-    align-items: center;
-}
-div.lang > button {
-    display: flex;
-    align-items: center;
-    background: transparent;
     border: none;
+    background: transparent;
 }
-div.lang > button img {
+header > div.lang > button img {
     height: 16px;
     cursor: pointer;
 }
 
-/* Game */
+
+/******************/
+/* GAME STRUCTURE */
+/******************/
+
+@font-face { /* Impact font for game title */
+    font-family: "Impact";
+    src: url("/font/impact.ttf") format("truetype"), url("/font/impact.woff") format("woff");
+}
+
+hr.game-hr {
+    margin: 25px 0px;
+    border-width: 1px 0px 0px 0px /* top - right - bottom - left*/;
+    border-style: solid;
+    border-color: #e5e5e561;
+}
+
+
+
+
+/* GAME CONTAINER */
+
 div#game-container {
     display: flex;
     flex-direction: column;
-    /* width: 400px; */
     width: 80%;
-    /* padding: 20px; */
     padding: 40px;
-    margin-top: 50px;
+    margin-top: 30px;
 
 
-    /* border: 1px solid; */
     border: 2px solid;
-    /* border-radius: 3px; */
     border-radius: 7px;
     border-color: #e5e5e53d;
     background: #ffffff29;
 }
 
-div#game-container > .title {
+div#game-container > div.title { /* Title */
     width: 100%;
     text-align: center;
-    /* font-size: 30px; */
     font-size: 75px;
     font-weight: 600;
     letter-spacing: 3px;
 
     color: white;
     font-family: "Impact", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-shadow: var(--text-border);
+    text-shadow: var(--text-border); /* Text "border" previously defined */
 }
 
-div#game-container > div#vidas {
+div#game-container > div#life-counter { /* Life counter */
     display: flex;
     justify-content: center;
-    /* gap: 3px; */
     gap: 8px;
 
     --heart-display: initial; /* Representación del conteo de vidas */
 }
-
-/* Contador de vidas */
-div#game-container > div#vidas img {
+div#game-container > div#life-counter img {
     image-rendering: pixelated;
-    /* height: 22px; */
     height: 55px;
 }
-div#game-container > div#vidas[lifecount="3"] img:not(.c-3),
-div#game-container > div#vidas[lifecount="2"] img:not(.c-2),
-div#game-container > div#vidas[lifecount="1"] img:not(.c-1),
-div#game-container > div#vidas[lifecount="0"] img:not(.c-0) {
+
+/* Life counter visual representation depending on number of lives */
+div#game-container > div#life-counter[lifecount="3"] img:not(.c-3),
+div#game-container > div#life-counter[lifecount="2"] img:not(.c-2),
+div#game-container > div#life-counter[lifecount="1"] img:not(.c-1),
+div#game-container > div#life-counter[lifecount="0"] img:not(.c-0) {
     --heart-display: none;
 }
-div#game-container > div#vidas[lifecount="3"] img.c-3,
-div#game-container > div#vidas[lifecount="2"] img.c-2,
-div#game-container > div#vidas[lifecount="1"] img.c-1,
-div#game-container > div#vidas[lifecount="0"] img.c-0 {
+div#game-container > div#life-counter[lifecount="3"] img.c-3,
+div#game-container > div#life-counter[lifecount="2"] img.c-2,
+div#game-container > div#life-counter[lifecount="1"] img.c-1,
+div#game-container > div#life-counter[lifecount="0"] img.c-0 {
     --heart-display: initial;
 }
-div#game-container > div#vidas img.c-3,
-div#game-container > div#vidas img.c-2,
-div#game-container > div#vidas img.c-1,
-div#game-container > div#vidas img.c-0 {
+div#game-container > div#life-counter img.c-3,
+div#game-container > div#life-counter img.c-2,
+div#game-container > div#life-counter img.c-1,
+div#game-container > div#life-counter img.c-0 {
     display: var(--heart-display);
 }
 
 
-div.instrucciones {
-    /* padding: 0px 40px; */
+div#game-container > div.instructions { /* Game instructions */
     padding: 0px 80px;
-    color: gray;
     text-align: justify;
-    /* font-size: 10px; */
     font-size: 30px;
+    color: gray;
 }
 
-div.control {
-    padding: 10px 40px;
-    position: relative;
+div#game-container > div.control { /* Element containing the INPUT */
     display: flex;
-    /* align-items: center; */
     justify-content: center;
+    position: relative;
     width: 100%;
-    /* margin: auto; */
+    padding: 10px 40px;
     margin-top: 20px;
 }
-div.control label {
+div#game-container > div.control > label {
     display: none;
 }
-
-div.control input#numero {
+div#game-container > div.control > input#numero { /* Input itself */
     padding: 6px 12px;
     border: 1px solid;
     border-color: #e5e5e53d;
     background: #ffffff2e;
     border-radius: 3px;
-    /* font-size: 10px; */
     font-size: 30px;
     text-align: center;
     min-width: 500px;
 }
-div.control input#numero:focus-visible {
+div#game-container > div.control > input#numero:focus-visible {
     outline: 0px;
 }
-div.control input#numero:focus-visible {
+div#game-container > div.control > input#numero:focus-visible {
     border-color: #58a7c182;
 }
-div.control input#numero::placeholder {
+div#game-container > div.control > input#numero::placeholder {
     color: rgba(135, 155, 179, 0.555);
 }
-div.control input#numero:disabled {
+div#game-container > div.control > input#numero:disabled {
     background-color: #cfcfcf57;
     border-color: #d7d7d757;
 }
-div.control input#numero:disabled::placeholder {
+div#game-container > div.control > input#numero:disabled::placeholder {
     opacity: 0;
 }
 
 
-div#alerts {
+div#game-container > div#alerts { /* Alerts container, showing an output on the number introduced */
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    gap: 3px;
-    /* height: 25px; */
-    height: 60px;
-    padding: 5px 5px;
     justify-content: center;
     align-items: center;
+    gap: 3px;
+
+    margin-top: 20px;
+    padding: 5px 5px;
+    min-height: 60px;
 }
-div#alerts > div {
+div#game-container > div#alerts > div { /* Content initially hidden */
     display: none;
-}
-div#alerts > div.alert {
     color: #444;
-    /* font-size: 10px; */
     font-size: 30px;
 }
 
-div#alerts .fake-button {
-    border: 1px solid;
-    font-size: 9px;
-    font-size: 25px;
+div#game-container > div#alerts .fake-button {
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content; */
 
     padding: 6px 12px;
-    border-radius: 6px;
-    background: #dfb240;
-    color: #ffffff;
-    border-color: #8181813a;
+    margin-top: 10px;
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
+
+    border: 1px solid #8181813a;
+    border-radius: 6px;
+    background: #e0a40a;
+
+    font-size: 25px;
+    color: #ffffff;
 }
-div#alerts .fake-button:hover {
-    background: rgb(201, 154, 35);
+div#game-container > div#alerts .fake-button:hover {
+    background: rgb(209, 154, 15);
 }
